@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GyanSaathi - Your trusted partner in learning. Helping tutors and parents create engaging, chapter-wise practice material for students." />
+  <title>GyanSaathi - Your Learning Partner</title>
+  <style>
+    :root {
+      --primary: #1a73e8;
+      --secondary: #f5f7fa;
+      --text-dark: #222;
+      --text-light: #555;
+      --max-width: 1100px;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--secondary);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      max-width: var(--max-width);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    nav h1 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      margin-left: 1rem;
+      font-weight: 500;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .hero-text {
+      flex: 1;
+      padding: 1rem;
+    }
+
+    .hero-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: #155fc0;
+    }
+
+    .hero-img {
+      flex: 1;
+      padding: 1rem;
+    }
+
+    .hero-img img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Features Section */
+    .features {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 2rem 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .feature h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    footer {
+      background: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      border-top: 1px solid #ddd;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <h1>GyanSaathi</h1>
+      <div>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Your Trusted Partner in Learning</h2>
+      <p>GyanSaathi helps tutors and parents create chapter-wise practice material, generate MCQs, and provide personalized learning experiences for students.</p>
+      <a href="#contact" class="btn-primary">Get Started</a>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=1000" alt="Students learning together" />
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="feature">
+      <h3>Chapter-wise Content</h3>
+      <p>Organize learning material in an easy-to-access, chapter-based format for structured progress.</p>
+    </div>
+    <div class="feature">
+      <h3>MCQ Generation</h3>
+      <p>Automatically generate multiple-choice questions to test understanding and improve retention.</p>
+    </div>
+    <div class="feature">
+      <h3>For Tutors & Parents</h3>
+      <p>Empower educators and guardians to track progress and create custom study plans for their students.</p>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p>© 2025 GyanSaathi. All Rights Reserved. | Email: contact@gyansaathi.in</p>
+  </footer>
+
+</body>
+</html>
