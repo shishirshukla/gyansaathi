@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Scan2Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0052CC;
+            --light-blue: #4C9AFF;
+            --pale-blue: #DEEBFF;
+            --dark-blue: #172B4D;
+            --white: #FFFFFF;
+            --off-white: #F7FAFC;
+            --text-gray: #5E6C84;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--dark-blue);
+            line-height: 1.7;
+            background: var(--off-white);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 82, 204, 0.1);
+        }
+
+        .logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            font-weight: 400;
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--dark-blue);
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            padding: 8rem 5% 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -100px;
+        }
+
+        .hero-banner h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 400;
+        }
+
+        .last-updated {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: -3rem auto 4rem;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .privacy-content {
+            background: var(--white);
+            padding: 4rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 82, 204, 0.1);
+        }
+
+        .intro {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--pale-blue);
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: var(--dark-blue);
+            margin: 3rem 0 1.5rem;
+            font-weight: 400;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            margin: 2rem 0 1rem;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--dark-blue);
+            line-height: 1.8;
+        }
+
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--dark-blue);
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: var(--pale-blue);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .highlight-box h3 {
+            margin-top: 0;
+            color: var(--primary-blue);
+        }
+
+        .contact-section {
+            background: var(--off-white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .contact-link {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        .toc {
+            background: var(--pale-blue);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+        }
+
+        .toc h3 {
+            color: var(--dark-blue);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0.8rem;
+        }
+
+        .toc a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .toc a:hover {
+            color: var(--dark-blue);
+            text-decoration: underline;
+        }
+
+        strong {
+            color: var(--dark-blue);
+            font-weight: 700;
+        }
+
+        footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 3rem 5%;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+
+        footer a {
+            color: var(--light-blue);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero-banner h1 {
+                font-size: 2.5rem;
+            }
+
+            .privacy-content {
+                padding: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .content-wrapper {
+                margin: -2rem auto 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="landing.html" class="logo">Scan2Study</a>
+        <a href="landing.html" class="back-link">← Back to Home</a>
+    </nav>
+
+    <div class="hero-banner">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last Updated: February 6, 2025</p>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="privacy-content">
+            <p class="intro">
+                At Scan2Study, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the application.
+            </p>
+
+            <div class="toc">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="#info-collection">1. Information We Collect</a></li>
+                    <li><a href="#how-we-use">2. How We Use Your Information</a></li>
+                    <li><a href="#data-storage">3. Data Storage and Security</a></li>
+                    <li><a href="#sharing">4. Disclosure of Your Information</a></li>
+                    <li><a href="#third-party">5. Third-Party Services</a></li>
+                    <li><a href="#children">6. Children's Privacy</a></li>
+                    <li><a href="#your-rights">7. Your Privacy Rights</a></li>
+                    <li><a href="#changes">8. Changes to This Policy</a></li>
+                    <li><a href="#contact">9. Contact Us</a></li>
+                </ul>
+            </div>
+
+            <h2 id="info-collection">1. Information We Collect</h2>
+            
+            <h3>Personal Information</h3>
+            <p>When you register for Scan2Study, we may collect the following personal information:</p>
+            <ul>
+                <li><strong>Account Information:</strong> Name, email address, and password</li>
+                <li><strong>Profile Information:</strong> Student grade level, subjects of interest, and study preferences</li>
+                <li><strong>Payment Information:</strong> Credit card details or other payment information (processed securely through third-party payment processors)</li>
+            </ul>
+
+            <h3>Content You Upload</h3>
+            <p>To provide our core services, we collect and process:</p>
+            <ul>
+                <li><strong>Textbook Images:</strong> Photographs of textbook pages, chapters, or study materials you upload to generate quizzes and flashcards</li>
+                <li><strong>Study Materials:</strong> Generated quizzes, flashcards, and any notes or annotations you create within the app</li>
+                <li><strong>Usage Data:</strong> Information about how you interact with generated content, including quiz scores, study time, and completion rates</li>
+            </ul>
+
+            <h3>Automatically Collected Information</h3>
+            <p>When you use Scan2Study, we automatically collect certain information about your device and usage patterns:</p>
+            <ul>
+                <li><strong>Device Information:</strong> Device type, operating system, unique device identifiers</li>
+                <li><strong>Log Data:</strong> IP address, browser type, access times, pages viewed, and app features used</li>
+                <li><strong>Analytics Data:</strong> App performance, crash reports, and feature usage statistics</li>
+                <li><strong>Camera Permissions:</strong> Access to your device's camera for scanning textbook pages</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h3>Important Note on Image Processing</h3>
+                <p>The textbook images you upload are processed using advanced AI technology to extract text and generate educational content. These images are temporarily stored during processing and are retained only as long as necessary to provide our services or as required by law.</p>
+            </div>
+
+            <h2 id="how-we-use">2. How We Use Your Information</h2>
+            
+            <p>We use the information we collect for the following purposes:</p>
+
+            <h3>Service Delivery</h3>
+            <ul>
+                <li>Process uploaded images to generate quizzes and flashcards</li>
+                <li>Store and organize your study materials for easy access</li>
+                <li>Track your progress and provide performance analytics</li>
+                <li>Customize your learning experience based on your preferences</li>
+            </ul>
+
+            <h3>Account Management</h3>
+            <ul>
+                <li>Create and manage your user account</li>
+                <li>Process subscription payments and manage billing</li>
+                <li>Send important account notifications and updates</li>
+                <li>Provide customer support and respond to your inquiries</li>
+            </ul>
+
+            <h3>Improvement and Analytics</h3>
+            <ul>
+                <li>Analyze app usage to improve features and user experience</li>
+                <li>Develop new features based on user behavior and feedback</li>
+                <li>Monitor and improve our AI algorithms for better content generation</li>
+                <li>Conduct research and testing to enhance service quality</li>
+            </ul>
+
+            <h3>Communication</h3>
+            <ul>
+                <li>Send you updates about new features and improvements</li>
+                <li>Provide educational content and study tips</li>
+                <li>Request feedback and reviews (with your consent)</li>
+                <li>Send promotional materials about our services (you can opt-out anytime)</li>
+            </ul>
+
+            <h2 id="data-storage">3. Data Storage and Security</h2>
+            
+            <h3>How We Protect Your Data</h3>
+            <p>We implement robust security measures to protect your personal information:</p>
+            <ul>
+                <li><strong>Encryption:</strong> All data transmitted between your device and our servers is encrypted using industry-standard SSL/TLS protocols</li>
+                <li><strong>Secure Storage:</strong> Your data is stored on secure servers with restricted access</li>
+                <li><strong>Password Protection:</strong> Passwords are hashed and encrypted using advanced cryptographic methods</li>
+                <li><strong>Regular Security Audits:</strong> We conduct regular security assessments and updates to protect against vulnerabilities</li>
+                <li><strong>Access Controls:</strong> Only authorized personnel have access to user data, and access is logged and monitored</li>
+            </ul>
+
+            <h3>Data Retention</h3>
+            <p>We retain your information for as long as necessary to provide our services and fulfill the purposes outlined in this policy:</p>
+            <ul>
+                <li><strong>Active Accounts:</strong> Data is retained while your account is active</li>
+                <li><strong>Deleted Accounts:</strong> Upon account deletion, personal information is removed within 30 days, except where retention is required by law</li>
+                <li><strong>Uploaded Images:</strong> Textbook images used for quiz generation are retained only as long as necessary for service delivery, typically 90 days, unless you choose to delete them earlier</li>
+                <li><strong>Generated Content:</strong> Quizzes and flashcards are retained until you delete them or close your account</li>
+            </ul>
+
+            <h2 id="sharing">4. Disclosure of Your Information</h2>
+            
+            <p>We do not sell, trade, or rent your personal information to third parties. However, we may share your information in the following circumstances:</p>
+
+            <h3>Service Providers</h3>
+            <p>We may share information with trusted third-party service providers who assist us in operating our app, including:</p>
+            <ul>
+                <li><strong>Cloud Storage Providers:</strong> For secure data storage and backup</li>
+                <li><strong>Payment Processors:</strong> To handle subscription payments securely</li>
+                <li><strong>AI and Machine Learning Services:</strong> For image processing and content generation</li>
+                <li><strong>Analytics Providers:</strong> To understand app usage and improve our services</li>
+                <li><strong>Customer Support Tools:</strong> To provide efficient support services</li>
+            </ul>
+            <p>These service providers are contractually obligated to protect your information and use it only for the purposes we specify.</p>
+
+            <h3>Legal Requirements</h3>
+            <p>We may disclose your information when required by law or to:</p>
+            <ul>
+                <li>Comply with legal processes, court orders, or government requests</li>
+                <li>Enforce our Terms of Service and other agreements</li>
+                <li>Protect the rights, property, or safety of Scan2Study, our users, or others</li>
+                <li>Investigate and prevent fraud, security issues, or technical problems</li>
+            </ul>
+
+            <h3>Business Transfers</h3>
+            <p>If Scan2Study is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. We will notify you via email and/or prominent notice in the app of any change in ownership or use of your personal information.</p>
+
+            <h2 id="third-party">5. Third-Party Services</h2>
+            
+            <p>Our app may contain links to third-party websites or services that are not owned or controlled by Scan2Study. We are not responsible for the privacy practices of these third parties. We encourage you to read the privacy policies of any third-party services you use.</p>
+
+            <h3>Third-Party Analytics</h3>
+            <p>We use third-party analytics services to help us understand how users interact with our app. These services may collect information about your device and usage patterns using cookies and similar technologies. This information is used to improve our services and user experience.</p>
+
+            <h2 id="children">6. Children's Privacy</h2>
+            
+            <p>Scan2Study is designed to help students of all ages with their studies. We recognize the importance of protecting children's privacy, especially for users under the age of 13 (or the applicable age of digital consent in your jurisdiction).</p>
+
+            <div class="highlight-box">
+                <h3>Parental Consent</h3>
+                <p>If you are under 13 years old, you must have your parent or guardian's permission to use Scan2Study. We encourage parents to be involved in their children's online activities and to guide them on appropriate use of educational technology.</p>
+            </div>
+
+            <h3>Information We Collect from Children</h3>
+            <p>For users under 13, we limit the personal information we collect to what is reasonably necessary to provide our educational services:</p>
+            <ul>
+                <li>Basic account information (parent/guardian email, student first name)</li>
+                <li>Study materials uploaded for quiz generation</li>
+                <li>Learning progress and performance data</li>
+            </ul>
+
+            <h3>Parental Rights</h3>
+            <p>Parents or guardians have the right to:</p>
+            <ul>
+                <li>Review the personal information we've collected from their child</li>
+                <li>Request deletion of their child's personal information</li>
+                <li>Refuse to allow further collection or use of their child's information</li>
+                <li>Request a copy of their child's data</li>
+            </ul>
+            <p>To exercise these rights, please contact us using the information provided in the Contact section below.</p>
+
+            <h2 id="your-rights">7. Your Privacy Rights</h2>
+            
+            <p>Depending on your location, you may have certain rights regarding your personal information:</p>
+
+            <h3>Access and Portability</h3>
+            <p>You have the right to access your personal information and request a copy of the data we hold about you in a portable format.</p>
+
+            <h3>Correction</h3>
+            <p>You can update or correct your personal information at any time through your account settings or by contacting us.</p>
+
+            <h3>Deletion</h3>
+            <p>You can request deletion of your personal information. Note that we may retain certain information as required by law or for legitimate business purposes.</p>
+
+            <h3>Opt-Out</h3>
+            <p>You can opt out of receiving promotional communications from us by:</p>
+            <ul>
+                <li>Clicking the "unsubscribe" link in any marketing email</li>
+                <li>Adjusting your notification preferences in the app settings</li>
+                <li>Contacting us directly with your request</li>
+            </ul>
+
+            <h3>Data Restriction</h3>
+            <p>You can request that we restrict the processing of your personal information in certain circumstances.</p>
+
+            <h3>Withdrawal of Consent</h3>
+            <p>Where we rely on your consent to process your personal information, you have the right to withdraw that consent at any time.</p>
+
+            <div class="highlight-box">
+                <h3>California Privacy Rights</h3>
+                <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA), including the right to know what personal information we collect, the right to delete your information, and the right to opt-out of the sale of your information. We do not sell personal information.</p>
+            </div>
+
+            <h2 id="changes">8. Changes to This Privacy Policy</h2>
+            
+            <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. When we make changes, we will:</p>
+            <ul>
+                <li>Update the "Last Updated" date at the top of this policy</li>
+                <li>Notify you through the app or via email for material changes</li>
+                <li>Post the new policy on our website and in the app</li>
+            </ul>
+            <p>We encourage you to review this Privacy Policy periodically. Your continued use of Scan2Study after any changes indicates your acceptance of the updated policy.</p>
+
+            <h2 id="contact">9. Contact Us</h2>
+            
+            <div class="contact-section">
+                <h3>Questions About This Privacy Policy?</h3>
+                <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+                <p style="margin-top: 1.5rem;">
+                    <strong>Email:</strong> <a href="mailto:privacy@scan2study.com" class="contact-link">privacy@scan2study.com</a><br>
+                    <strong>Support:</strong> <a href="mailto:support@scan2study.com" class="contact-link">support@scan2study.com</a>
+                </p>
+                <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-gray);">
+                    We aim to respond to all privacy-related inquiries within 48 hours.
+                </p>
+            </div>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--pale-blue); text-align: center; color: var(--text-gray);">
+                <p><strong>Your Privacy Matters to Us</strong></p>
+                <p>At Scan2Study, we are committed to protecting your privacy and providing a safe, secure learning environment for all our users. Thank you for trusting us with your educational journey.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Scan2Study. All rights reserved. | <a href="landing.html">Home</a> | <a href="privacy.html">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>
