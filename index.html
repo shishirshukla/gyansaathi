@@ -1,185 +1,814 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Scan2Study - Your trusted partner in learning. Helping tutors and parents create engaging, chapter-wise practice material for students." />
-  <title>Scan2Study - Your Learning Partner</title>
-  <style>
-    :root {
-      --primary: #1a73e8;
-      --secondary: #f5f7fa;
-      --text-dark: #222;
-      --text-light: #555;
-      --max-width: 1100px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan2Study - Transform Textbooks Into Practice Tests Instantly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: var(--secondary);
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
+        :root {
+            --primary-blue: #0052CC;
+            --light-blue: #4C9AFF;
+            --pale-blue: #DEEBFF;
+            --dark-blue: #172B4D;
+            --white: #FFFFFF;
+            --off-white: #F7FAFC;
+            --text-gray: #5E6C84;
+        }
 
-    header {
-      background: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--dark-blue);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    nav {
-      max-width: var(--max-width);
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-    }
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
 
-    nav h1 {
-      color: var(--primary);
-      font-size: 1.5rem;
-      margin: 0;
-    }
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(76, 154, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 20s ease-in-out infinite;
+        }
 
-    nav a {
-      text-decoration: none;
-      color: var(--text-dark);
-      margin-left: 1rem;
-      font-weight: 500;
-    }
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(222, 235, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+            animation: float 15s ease-in-out infinite reverse;
+        }
 
-    /* Hero Section */
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      max-width: var(--max-width);
-      margin: auto;
-      padding: 2rem 1rem;
-    }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 50px) scale(1.1); }
+        }
 
-    .hero-text {
-      flex: 1;
-      padding: 1rem;
-    }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 82, 204, 0.1);
+            animation: slideDown 0.8s ease-out;
+        }
 
-    .hero-text h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
 
-    .hero-text p {
-      font-size: 1.1rem;
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-    }
+        .logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            font-weight: 400;
+        }
 
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-      transition: background 0.3s ease;
-    }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
 
-    .btn-primary:hover {
-      background: #155fc0;
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-blue);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
 
-    .hero-img {
-      flex: 1;
-      padding: 1rem;
-    }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
 
-    .hero-img img {
-      max-width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-    /* Features Section */
-    .features {
-      max-width: var(--max-width);
-      margin: auto;
-      padding: 2rem 1rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
+        .cta-button {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 82, 204, 0.3);
+        }
 
-    .feature {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
+        .cta-button:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 82, 204, 0.4);
+        }
 
-    .feature h3 {
-      margin-top: 0;
-      color: var(--primary);
-    }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 5% 4rem;
+            position: relative;
+            z-index: 1;
+        }
 
-    footer {
-      background: #fff;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: var(--text-light);
-      border-top: 1px solid #ddd;
-      margin-top: 2rem;
-    }
-  </style>
+        .hero-text {
+            max-width: 650px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 4rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn {
+            background: var(--white);
+            color: var(--primary-blue);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--white);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-btn:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 82, 204, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid var(--pale-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 82, 204, 0.15);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 82, 204, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .how-it-works {
+            background: var(--off-white);
+            padding: 6rem 5%;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.2s; }
+        .step:nth-child(3) { animation-delay: 0.3s; }
+        .step:nth-child(4) { animation-delay: 0.4s; }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 82, 204, 0.25);
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-blue);
+            font-weight: 700;
+        }
+
+        .step p {
+            color: var(--text-gray);
+        }
+
+        .pricing {
+            background: var(--white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border: 2px solid var(--pale-blue);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary-blue);
+            box-shadow: 0 20px 60px rgba(0, 82, 204, 0.15);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 82, 204, 0.15);
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .price span {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .plan-description {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0;
+            color: var(--dark-blue);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .plan-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .plan-button:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -250px;
+            right: -100px;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--light-blue);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .hero-content {
+                padding: 6rem 5% 3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .primary-btn, .secondary-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <header>
     <nav>
-      <img src="logo.png" alt="Scan2Study Logo" style="height: 40px; margin-right: 10px;">
-      
-      <div>
-        <a href="#features">Features</a>
-      
-      </div>
+        <div class="logo">Scan2Study</div>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="#" class="cta-button">Download App</a></li>
+        </ul>
     </nav>
-  </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Your Trusted Partner in Learning</h2>
-      <p>Scan2Study helps tutors and parents create chapter-wise practice material, generate MCQs, and provide personalized learning experiences for students.</p>
-      <a href="#contact" class="btn-primary">Get Started</a>
-    </div>
-    <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=1000" alt="Students learning together" />
-    </div>
-  </section>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="badge">🚀 Version 1.0.0 Now Available</div>
+                <h1>Turn Textbooks Into Practice Tests in Seconds</h1>
+                <p class="hero-description">
+                    Scan2Study transforms any chapter from your textbooks into comprehensive quizzes and flashcards instantly. No more manual question creation—just snap, scan, and study.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#" class="primary-btn">Get Started Free</a>
+                    <a href="#how-it-works" class="secondary-btn">See How It Works</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="features" id="features">
-    <div class="feature">
-      <h3>Chapter-wise Content</h3>
-      <p>Organize learning material in an easy-to-access, chapter-based format for structured progress.</p>
-    </div>
-    <div class="feature">
-      <h3>MCQ Generation</h3>
-      <p>Automatically generate multiple-choice questions to test understanding and improve retention.</p>
-    </div>
-    <div class="feature">
-      <h3>For Tutors & Parents</h3>
-      <p>Empower educators and guardians to track progress and create custom study plans for their students.</p>
-    </div>
-  </section>
+    <section id="features">
+        <div class="section-header">
+            <div class="section-label">Powerful Features</div>
+            <h2>Everything You Need for Effective Revision</h2>
+            <p class="section-description">
+                Designed to help parents and students transform passive reading into active practice with cutting-edge AI technology.
+            </p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📸</div>
+                <h3>Image-to-Quiz Engine</h3>
+                <p>Simply upload photos of any chapter—Class 3 EVS, Class 5 Science, History, or any subject—and watch as comprehensive question papers generate automatically. No typing required.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Instant Flashcards</h3>
+                <p>Convert dense paragraphs and complex concepts into easy-to-digest flashcards for quick revision sessions. Perfect for last-minute exam preparation.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                <h3>Parent-Friendly Design</h3>
+                <p>Specifically designed to help parents quickly set up mock tests for their children without the hassle of typing out questions manually. Save hours of preparation time.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Comprehensive Coverage</h3>
+                <p>Works with all subjects and grade levels. From elementary EVS to high school sciences, Scan2Study adapts to your study needs.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Smart Question Generation</h3>
+                <p>AI-powered algorithms create varied question types including multiple choice, short answer, and true/false to ensure thorough understanding.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <h3>Save & Organize</h3>
+                <p>Keep all your generated quizzes and flashcards organized by subject and chapter. Access your study materials anytime, anywhere.</p>
+            </div>
+        </div>
+    </section>
 
-  <footer id="contact">
-    <p>© 2025 Scan2Study All Rights Reserved. | Email: contact@gyansaathi.in</p>
-  </footer>
+    <div class="how-it-works" id="how-it-works">
+        <div class="section-header">
+            <div class="section-label">Simple Process</div>
+            <h2>How Scan2Study Works</h2>
+            <p class="section-description">
+                Use your own textbook for generating Question Paper (PDFs) , MCQs and Falshcards . 
+            </p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Capture</h3>
+                <p>Take a photo of any chapter or page from your textbook using your phone's camera.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Upload</h3>
+                <p>Upload the image to Scan2Study. Our AI instantly begins analyzing the content.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Generate</h3>
+                <p>Watch as comprehensive quizzes and flashcards are generated within seconds. Direct printable PDFs are generated ffrom your content.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Study</h3>
+                <p>Start practicing immediately with your personalized study materials.</p>
+            </div>
+        </div>
+    </div>
 
+    <section id="pricing" class="pricing">
+        <div class="section-header">
+            <div class="section-label">Pricing Plans</div>
+            <h2>Choose Your Perfect Plan</h2>
+            <p class="section-description">
+                Flexible pricing to match your study needs. Start free and upgrade anytime.
+            </p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="plan-name">Free</div>
+                <div class="price">₹49<span>/month</span></div>
+                <p class="plan-description">Perfect for trying out Scan2Study</p>
+                <ul class="features-list">
+                    <li>50 Credits for 1 month</li>
+                    <li>Scanning 8 pages costs 3 credits</li>
+                    <li>Each generation costs 1 credits</li>
+                    <li>Standard support</li>
+                </ul>
+                <button class="plan-button">Get Started Free</button>
+            </div>
+            <div class="pricing-card featured">
+                <div class="plan-name">Student</div>
+                <div class="price">₹99<span>/month</span></div>
+                <p class="plan-description">Ideal for regular exam preparation</p>
+                <ul class="features-list">
+                   <li>110 Credits for 1 month</li>
+                    <li>Scanning 8 pages costs 3 credits</li>
+                    <li>Each generation costs 1 credits</li>
+                    <li>Standard support</li>
+                </ul>
+                <button class="plan-button">Start 7-Day Free Trial</button>
+            </div>
+            <div class="pricing-card">
+                <div class="plan-name">Family</div>
+                <div class="price">₹249<span>/month</span></div>
+                <p class="plan-description">Best for families with multiple students</p>
+                <ul class="features-list">
+                   <li>300 Credits for 1 month</li>
+                    <li>Scanning 8 pages costs 3 credits</li>
+                    <li>Each generation costs 1 credits</li>
+                    <li>Fast support</li>
+                </ul>
+                <button class="plan-button">Free Trial provides 5 Credits</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Transform Your Study Routine?</h2>
+        <p>Join thousands of students and parents who are making exam prep easier and more effective.</p>
+        <a href="#" class="primary-btn">Download Scan2Study Now</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Scan2Study</h4>
+                <p style="color: rgba(255,255,255,0.8); line-height: 1.8;">
+                    Making exam preparation effortless for students and parents worldwide.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#">Download</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">System Status</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Scan2Study. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
